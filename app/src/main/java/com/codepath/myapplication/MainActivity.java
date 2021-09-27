@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private File photoFile;
     public String photoFileName = "photo.jpg";
+    private Button btnLogout; //Added remove if needed
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+        btnLogout = findViewById(R.id.btnLogout); //Added remove if needed
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +76,26 @@ public class MainActivity extends AppCompatActivity {
                 savePost(description, currentUser, photoFile);
             }
         });
+
+        btnLogout.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String curUser = ParseUser.getCurrentUser().getUsername();
+                ParseUser.logOut();
+                //Toast.makeText(MainActivity.this, "User logged out!", Toast.LENGTH_SHORT).show();
+                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                if(currentUser == null){
+                    Toast.makeText(MainActivity.this, curUser + " logged out!", Toast.LENGTH_SHORT).show();
+                }
+                goLoginActivity();
+            }
+        }));
+    }
+
+    private void goLoginActivity(){
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void launchCamera(){
