@@ -25,7 +25,7 @@ Here's a walkthrough of implemented user stories:
 
 Added functionality of indeterminate bar:
 
-<img src='https://github.com/hectorrodriguez-bit/Parsatgram/blob/master/Indeterminate%20Bar.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://user-images.githubusercontent.com/57577440/135023805-da5578b6-6e51-4996-926d-28fb6b0b7ecd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
