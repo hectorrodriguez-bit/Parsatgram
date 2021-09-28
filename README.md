@@ -13,6 +13,10 @@ The following **required** functionality is completed:
 - [x] The current signed in user is persisted across app restarts.
 - [x] User can take a photo, add a caption, and post it to "Instagram".
 
+The following **optional** features are implemented:
+
+- [x] User sees app icon in home screen and styled bottom navigation view
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
