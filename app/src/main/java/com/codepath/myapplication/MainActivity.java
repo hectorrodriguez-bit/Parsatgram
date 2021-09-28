@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private File photoFile;
     public String photoFileName = "photo.jpg";
     private Button btnLogout; //Added remove if needed
+    private ProgressBar pbLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogout = findViewById(R.id.btnLogout); //Added remove if needed
+        pbLoading = findViewById(R.id.pbLoading);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void launchCamera(){
+        pbLoading.setVisibility(View.INVISIBLE);
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Create a File reference for future access
@@ -164,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "Post save was successful!");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                pbLoading.setVisibility(View.VISIBLE);
             }
         });
     }
