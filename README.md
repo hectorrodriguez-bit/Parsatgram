@@ -16,6 +16,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] User sees app icon in home screen and styled bottom navigation view
+- [x] After the user submits a new post, show an indeterminate progress bar while the post is being uploaded to Parse.
 
 ## Video Walkthrough
 
