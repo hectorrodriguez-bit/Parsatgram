@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 //import android.support.v4.content.FileProvider;
 //import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +18,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationMenu;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCaptureImage;
     private ImageView ivPostImage;
     private Button btnSubmit;
+    private BottomNavigationView bottomNavigationView;
     private File photoFile;
     public String photoFileName = "photo.jpg";
     private Button btnLogout; //Added remove if needed
@@ -54,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogout = findViewById(R.id.btnLogout); //Added remove if needed
         pbLoading = findViewById(R.id.pbLoading);
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +100,26 @@ public class MainActivity extends AppCompatActivity {
                 goLoginActivity();
             }
         }));
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { //Parameter is one of three menu items we created
+                Fragment fragment;
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_compose:
+                        Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     private void goLoginActivity(){
