@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.codepath.myapplication.fragments.ComposeFragment;
 import com.codepath.myapplication.fragments.PostsFragment;
+import com.codepath.myapplication.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.action_profile:
                         // TODO: update fragment
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         //Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
                     default:
                         break;
