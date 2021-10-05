@@ -1,8 +1,8 @@
 # Project 3 - *Parstagram*
 
 **Parstagram** is a photo sharing app similar to Instagram but using Parse as its backend.
-Part 2
-# Project 3 - *Name of App Here*
+# Project 3 - *Parstgram*
+# Part 2
 
 **Name of your app** is a photo sharing app similar to Instagram but using Parse as its backend.
 
